@@ -3,7 +3,7 @@
     <b> {{ .Title }} </b>
     <br>
 
-    {{ .Params.Citation | replaceRE "Michiel Van Beirendonck" "<b>Michiel Van Beirendonck</b>" | safeHTML }}
+    {{ .Params.Citation | replaceRE "Michiel Van Beirendonck" "<span style='color:#268bd2;'>Michiel Van Beirendonck</span>" | safeHTML }}
     <br>
 
     {{ if eq .Section "talks"}}
