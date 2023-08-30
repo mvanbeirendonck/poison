@@ -17,5 +17,18 @@
     </article>
     {{- end }}
 </div>
+
+<!-- <div class="featured">
+    <h1>Featured Publications</h1>
+    <br>
+    <div class="featured-posts">
+        {{ range where .Site.RegularPages "Section" "publications" }}
+        {{ if .Params.featured }}
+        {{ partial "publication/single.html" . }}
+        {{ end }}
+        {{ end }}
+    </div>
+</div> -->
+
 {{ partial "pagination.html" . }}
 {{- end }}

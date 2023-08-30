@@ -1,0 +1,71 @@
+<div class="publication">
+
+    <b> {{ .Title }} </b>
+    <br>
+
+    {{ .Params.Citation | replaceRE "Michiel Van Beirendonck" "<b>Michiel Van Beirendonck</b>" | safeHTML }}
+    <br>
+
+    {{ if eq .Section "talks"}}
+    <i>{{ .Params.Publication }}, </i> {{ .Params.Location }}, 
+    <time datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "January 2, 2006" }}
+    </time>
+    {{ else }}
+    <i>{{ .Params.Publication }}, </i>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "2006" }}
+    </time>
+    {{ end }}
+    <br>
+
+    {{ with .Params.url_web }}
+    <a class="btn" href="{{ . }}" target="_blank" rel="noopener">
+        <i class="fa fa-globe"></i> Web
+    </a>
+    {{ end }}
+
+    {{ with .Params.url_pdf }}
+    <a class="btn" href="{{ . }}" target="_blank" rel="noopener">
+        <i class="fa fa-file-pdf"></i> PDF
+    </a>
+    {{ end }}
+
+    {{ with .Params.url_video }}
+    <a class="btn" href="{{ . }}" target="_blank" rel="noopener">
+        <i class="fab fa-fw fa-youtube"></i> Video
+    </a>
+    {{ end }}
+
+    {{ with .Params.url_slides }}
+    <a class="btn" href="{{ . }}" target="_blank" rel="noopener">
+        <i class="fa fa-tv"></i> Slides
+    </a>
+    {{ end }}
+
+    {{ with .Params.url_poster }}
+    <a class="btn" href="{{ . }}" target="_blank" rel="noopener">
+       <i class="fa fa-file-powerpoint"></i> Poster
+    </a>
+    {{ end }}
+
+    {{ with .Params.url_code }}
+    <a class="btn" href="{{ . }}" target="_blank" rel="noopener">
+        <i class="fab fa-fw fa-github"></i> Code
+    </a>
+    {{ end }}
+
+    {{ with .Params.doi }}
+    <a class="btn" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">
+        <i class="ai ai-doi"></i> doi
+    </a>
+    {{ end }}
+
+    {{ $resource := .Resources.GetMatch "cite.bib" }}
+    {{ with $resource }}
+    <a class="btn" href="{{ $resource.RelPermalink }} " target="_blank" rel="noopener" download>
+        <i class="fa fa-quote-left"></i> .bib
+    </a>
+    {{ end }}
+</div>
+<br>
