@@ -16,6 +16,9 @@
         {{ end }}
     </h1>
     <p class="lead">
-    {{ with .Site.Params.description }}{{. | safeHTML}}{{end}}
+    {{ with .Site.Params.Job }}{{. | safeHTML}}{{end}}
+    <br>
+    {{ with .Site.Params.Company }}{{. | safeHTML}}{{end}}
     </p>
+
 </div>
